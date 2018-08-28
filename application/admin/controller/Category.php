@@ -16,7 +16,7 @@ class Category extends Controller{
 		}
 	} 
 	//一级栏目下拉列表数据显示
-	public function add(){
+	public function getFristDropCategory(){
 		$categorys = model('Category')->getNormalFirstCategory();
 		foreach($categorys as $v){
 			echo json_encode($v->toArray());
@@ -71,8 +71,28 @@ class Category extends Controller{
 		}	
 	}
 
-	//显示二级栏目数据
-	public function 
+	//获取二级栏目数据
+	public function getSecondCategorys(){
+		$id = input('get.id',1,'intval');
+		$res = model('Category')->select();
+		foreach($res as $v){
+			if($v['parent_id']==$id){
+				echo json_encode($v->toArray());
+			}
+		} 
+	}
+
+	//数据删除
+	public function statusChange(){
+		$id = input('get.');
+		$res = model('Category')->save(['status'=>-1],$id);
+		if($res){
+			$this->success('删除成功');
+		}else{
+			$this->success('删除失败');
+		}
+
+	}
 
 }
 

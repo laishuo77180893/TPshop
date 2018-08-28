@@ -25,19 +25,20 @@ class Category extends Model{
 
 		return $this->where($data)->order($order)->select();
 	}
-	//栏目分页显示
+	//一级栏目分页显示
 	public function getFristCategorys($parent_id=0){
 		$data = [
 			'status' => ['neq',-1],
 			'parent_id' => $parent_id,
 		];
 		$order = [
-			'id' => 'desc',
+			'id' => 'asc',
 		];
 		//sql语句调试方法 echo $this->getLastSql();
 		return $this->where($data)->order($order)->paginate(3);
 
 	}
+
 
 }
 
