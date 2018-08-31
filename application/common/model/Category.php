@@ -20,7 +20,7 @@ class Category extends Model{
 			'parent_id' => 0,
 		];
 		$order = [
-			'id' => 'desc',
+			'id' => 'asc',
 		];
 
 		return $this->where($data)->order($order)->select();
