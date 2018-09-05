@@ -26,9 +26,9 @@ class Image extends Controller{
         echo $info->getFilename(); 
 	*/
 		if($data){
-			return show(1,'success',$data);
+			return json(1,'success',$data);
 		}else{
-		 	return show(0,'upload error');
+		 	return json(0,'upload error');
 		}
 		
 	}

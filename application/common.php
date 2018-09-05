@@ -24,10 +24,12 @@ function status($data){
 	}
 }
 
-function show($code,$message,$data){
-	return [
-		'code'=>intval($code),
-		'message'=>$message,
-		'data'=>$data,
-	];
+function json($code,$msg="",$data=array()){  
+  	$result = [
+        'code' => intval($code),  
+        'msg' => $msg, 
+        'data' => $data   
+    ]; 
+            //输出json  
+    echo json_encode($result);  
 }
